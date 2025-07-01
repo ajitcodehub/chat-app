@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Application</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="login-screen" id="loginScreen">
+      <h2>Welcome to ChatApp</h2>
+      <input type="text" id="usernameInput" placeholder="Enter your username" />
+      <button onclick="enterChat()">Enter Chat</button>
+    </div>
+
+    <div class="chat-screen" id="chatScreen" style="display:none;">
+      <div class="chat-header">
+        <h2>Room: <span id="roomName">General</span></h2>
+        <select id="roomSelect" onchange="changeRoom()">
+          <option value="General">General</option>
+          <option value="Tech">Tech</option>
+          <option value="Random">Random</option>
+        </select>
+      </div>
+
+      <div class="chat-box" id="chatBox"></div>
+
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Required for real-time Socket.IO communication -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
